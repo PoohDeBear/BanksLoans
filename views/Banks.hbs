@@ -2,18 +2,36 @@
 <head>
 </head>
 <body>
-	<h1>Banks list</h1>
-    <a href="/">Calculate month payment</a>
-	<table border="1px solid black">
+<h1 style="color: rgb(70, 28, 109);">Banks list</h1>
+<a href="/">Back to start page</a>
+<br><br>
+<div class='banksList' style="background-color: rgb(178, 144, 211); font-weight: 300; width: 50%;">
+	<table border="1px solid black" style="text-align: center;">
 	<tr>
 		<th>Bank name</th>
 		<th>Interest rate, %</th>
 		<th>Maximum loan</th>
 		<th>Min down payment, %</th>
 		<th>Max loan period, months</th>
+		<th>Action</th>
 	</tr>
-	{appResponse}
+		{{#each bList}}
+			<tr id="{{this.bName}}">
+				<td>{{this.bName}}</td>
+				<td>{{this.iRate}}</td>
+				<td>{{this.mxLoan}}</td>
+				<td>{{this.mnDwnPayment}}</td>
+				<td>{{this.mxLnTerm}}</td>
+				<td><input type="button" value="Edit" onclick="location.href='/banks/editbank?bName={{this.bName}}';">
+				    <input type="button" value="Delete" onclick="location.href='/banks/deletebank?bName={{this.bName}}';">
+				</td>
+			</tr>
+		{{/each}}
+
 	</table>
-	<a href="/banks/addbank">Add new bank</a>
+		
+</div>
+<br>
+<a href="/banks/addbank">Add a new bank</a>
 </body>
 </html>

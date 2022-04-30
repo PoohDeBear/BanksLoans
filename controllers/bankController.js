@@ -1,21 +1,26 @@
-
-//import { BanksList, BanksItm } from '../models/Classes.js';
-//const bnksList = BanksList();
-//const bnksItm = BanksItm();
-
-const bnksList = require('../models/Classes.js');
-const bnksItm = require('../models/Classes.js');
-
+const BanksList = require('../models/BanksList.js');
+const BanksItm = require('../models/BanksItm.js');
+const bLst = global.banksList;
 
 exports.listing = function (request, response) {
-  response.send('Banks datas list');
+  let bl = [];
+  global.banksList.getList.forEach(bi => {
+      bl.push(bi);
+  });
+  response.render('Banks.hbs', {bList:bl});
 }
 
 exports.addBank = function (request, response) {
-  response.send('Add new banks record');
+  let rs = 'Add new banks record';
+  response.render('Control.hbs', {msg:rs});
 }
 
 exports.editBank = function (request, response) {
-    response.send('Edit banks record');
+    let rs = 'Edit banks recordfor ' + request.query.bName;
+    response.render('Control.hbs', {msg:rs});
   }
   
+  exports.deleteBank = function (request, response) {
+    let rs = 'Delet banks record for ' + request.query.bName;
+    response.render('Control.hbs', {msg:rs});
+  }

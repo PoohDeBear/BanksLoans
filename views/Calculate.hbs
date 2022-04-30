@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+	<h1>Banks loan calculation</h1>
+    <br>
+	<form action="/calculate" method="get">
+    	<label for="bName">Bank name:</label>
+		<input type="text" name="bName" value='{{rs.bName}}' readonly>
+		<br><br>
+		<label for="iRate" >Interest rate, %:</label>
+		<input type="number" name="iRate" value='{{rs.iRate}}' readonly >
+		<br><br>
+		<label for="mxLoan">Maximum loan (greater then 10000 and less then {{rs.mxLoan}}) :</label>
+		<input type="number" id="mxLoan" name="mxLoan" value="{{mrtgg}}" min="10000" max="{{rs.mxLoan}}">
+		<br><br>
+		<label for="DwnPayment">Down payment, % (greate then {{rs.mnDwnPayment}}):</label>
+		<input type="number" id="DwnPayment" name="DwnPayment" min="{{rs.mnDwnPayment}}" max="100" value="{{DwnPayment}}">
+		<br><br>
+		<label for="LnTerm">Max loan period in months (less then {{rs.mxLnTerm}}):</label>
+		<input type="number" id="LnTerm" name="LnTerm"  min="0" max="{{rs.mxLnTerm}}" value="{{LnTerm}}">
+		<br><br>
+		<input type="submit" value="Calculate loan"><br><br>
+</form>
+<div id="result">Monthly loan payment is {{bloan}}</div>
+<br>
+<a href="/">Back to start page</a>
+</body>
+</html>

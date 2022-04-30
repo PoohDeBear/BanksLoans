@@ -1,14 +1,15 @@
 const express = require('express');
-const app = express();
 const banksRouter = express.Router();
 
-const banksController = require('../controllers/bankController');
+const bankController = require('../controllers/bankController.js');
 
 
-banksRouter.use('/addbank', banksController.addBank );
+banksRouter.use('/addbank', bankController.addBank );
 
-banksRouter.use('/editbank', banksController.editBank );
+banksRouter.use('/editbank', bankController.editBank );
 
-banksRouter.use('/', banksController.listing);
+banksRouter.use('/deletebank', bankController.deleteBank );
+
+banksRouter.use('/', bankController.listing);
 
 module.exports = banksRouter;

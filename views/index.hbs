@@ -1,0 +1,27 @@
+<html>
+<head>
+	<script>
+		function toCalculate(){
+			var paraStr = '/calculate?bName=' + document.getElementById('bank').value;
+			window.location.href = paraStr;
+		}
+	</script>
+</head>
+<body>
+	<h1 style="color: rgb(70, 28, 109);">Banks list</h1>
+	<br>
+    <br>
+	<label for="banks">Choose your bank from the list:</label><br>
+	<input list="banks" name="bank" id="bank">
+	<datalist id="banks">
+		{{#each bList}}
+			<option value="{{this}}"></option>
+		{{/each}}
+	</datalist>
+	<br>
+	<p>and then</p>
+	<input type="button" value="Calculate loan" onclick='toCalculate()s'>
+	<div id="calcResult"></div>
+	<p>or go to <a href="/banks"> banks list</a> </p>
+</body>
+</html>
