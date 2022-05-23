@@ -3,6 +3,8 @@
 
 **MVC-Pattern** used 
 
+An application server work af 7000 port.
+
 **Pug engine** used for View-rendering.
 
 Records for banks information  collected in special class that based on JS Map's. Only Two records added for testing at present time.
